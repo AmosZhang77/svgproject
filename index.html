@@ -127,7 +127,7 @@
 		data: function () {
 			var pathData = {
 				"version": "2017001",
-				"finalSize": "{320, 474}",
+				"finalSize": "{{320, 474}",
 				"recordedOperations": [
 					{
 						"startTime": 1497691762.931098,
@@ -203,14 +203,26 @@
       created:function () {
 			//拿数据
 				//this.svgHeight=this.pathData.finalSize.indexOf("{")
-        for(;this.pathData.finalSize.indexOf("{")!=-1;){
-					this.pathData.finalSize.replace(/{/,"")
-        }
-				for(;this.pathData.finalSize.indexOf("}")!=-1;){
+        alert(1)
+				var reg=new RegExp("{","g");
+				//this.pathData.finalSize=this.pathData.finalSize.replace(/\{/,"")
+				this.pathData.finalSize=this.pathData.finalSize.replace(/\{/g,"");
+				this.pathData.finalSize=this.pathData.finalSize.replace(/\}/g,"");
+									//alert(this.pathData.finalSize)
+
+				/*for(;this.pathData.finalSize.indexOf("{")!=-1;){
+                    //alert(this.pathData.finalSize.indexOf("{"))
+                  var reg=new RegExp("{","g");
+                            this.pathData.finalSize=this.pathData.finalSize.replace(/\{/,"")
+                            //this.pathData.finalSize=this.pathData.finalSize.replace(/\{/,"")
+                            alert(this.pathData.finalSize)
+
+                        }*/
+				/*for(;this.pathData.finalSize.indexOf("}")!=-1;){
 					this.pathData.finalSize.replace(/}/,"")
 				}
 				alert(2)
-
+*/
 				console.log("this.pathData.finalSize",this.pathData.finalSize);
 			}
 	})
